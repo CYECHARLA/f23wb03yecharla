@@ -1,20 +1,19 @@
 extends layout
 
+
+
 block content
   h1= title
-  p Welcome to #{title}
-  p Created by Yecharla chalam Naidu
+  .container-fluid
+    .row
+      each car in results
+        .col-sm-4
+          .card
+            .card-body
+              h5.card-title Make: #{car.make}
+              p.card-text Model: #{car.model}
+              p.card-text Price: $#{car.price}
 
-  button(type='button', class='btn btn-secondary', onclick='goFaster()') Press Me
- 
-  div(id="faster") Increase the speed
-  script.
-    var mph = 20;
-    var change = 1;
-    
-    function goFaster() {
-      mph += change;
-      change++;
-      var div = document.getElementById('faster');
-      div.textContent = `MPH ${mph} with change ${change}`;
-    }
+
+
+
